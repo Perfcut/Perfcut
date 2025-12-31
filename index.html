@@ -1,300 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfect Team | Web Solutions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PERFCUT | Web Solutions</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-    /* ---------- B&W Animated Background ---------- */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08), transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05), transparent 50%);
-      animation: floatBG 22s ease-in-out infinite;
-      z-index: -1;
-    }
+/* ===== B&W Animated Background ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05), transparent 50%);
+  animation: bgMove 24s ease-in-out infinite;
+  z-index: -1;
+}
 
-    @keyframes floatBG {
-      0%,100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-25px) rotate(180deg); }
-    }
+@keyframes bgMove {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
 
-    /* ---------- Particles ---------- */
-    .particles {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      overflow: hidden;
-    }
+/* ===== Particles ===== */
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
 
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 50%;
-      animation: drift 16s linear infinite;
-    }
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  animation: float 18s linear infinite;
+}
 
-    @keyframes drift {
-      from { transform: translateY(100vh); opacity: 0; }
-      10% { opacity: 1; }
-      to { transform: translateY(-120vh); opacity: 0; }
-    }
+@keyframes float {
+  from { transform: translateY(110vh); opacity: 0; }
+  10% { opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
 
-    /* ---------- Layout ---------- */
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 100px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: reveal 1s ease forwards;
-    }
+/* ===== Sections ===== */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 110px 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 1.2s ease forwards;
+}
 
-    section:nth-child(even) {
-      animation-delay: 0.2s;
-    }
+section:nth-child(even) {
+  animation-delay: 0.15s;
+}
 
-    @keyframes reveal {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
 
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
+h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
 
-    p {
-      color: #cfcfcf;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 800px;
-      margin: 0 auto 15px;
-    }
+p {
+  color: #cfcfcf;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 820px;
+  margin: 0 auto 15px;
+}
 
-    /* ---------- Hero ---------- */
-    .logo {
-      max-width: 320px;
-      width: 100%;
-      margin-bottom: 40px;
-    }
+/* ===== Brand Logo ===== */
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 50px;
+  animation: brandIn 1.2s ease forwards;
+}
 
-    .hero-list {
-      margin-top: 25px;
-      line-height: 2;
-      color: #e0e0e0;
-    }
+.logo-symbol {
+  width: 90px;
+}
 
-    .btn {
-      display: inline-block;
-      margin-top: 35px;
-      padding: 14px 34px;
-      border-radius: 50px;
-      border: 1px solid #fff;
-      color: #000;
-      background: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+.logo-text {
+  width: 220px;
+}
 
-    .btn:hover {
-      background: transparent;
-      color: #fff;
-    }
+@keyframes brandIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* ---------- Services ---------- */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
+/* ===== Hero ===== */
+.hero-list {
+  margin-top: 30px;
+  line-height: 2;
+  color: #e0e0e0;
+}
 
-    .service-box {
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 30px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      transition: transform 0.3s ease;
-    }
+.btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 14px 36px;
+  border-radius: 50px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
-    .service-box:hover {
-      transform: translateY(-8px);
-    }
+.btn:hover {
+  background: transparent;
+  color: #fff;
+}
 
-    /* ---------- Footer ---------- */
-    footer {
-      padding: 60px 20px;
-      text-align: center;
-      color: #9a9a9a;
-      font-size: 0.9rem;
-    }
+/* ===== Services ===== */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
 
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
+.service-box {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 30px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  transition: transform 0.3s ease;
+}
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 768px) {
-      h1 { font-size: 2.3rem; }
-      h2 { font-size: 1.9rem; }
-      section { padding: 80px 15px; }
-    }
-  </style>
+.service-box:hover {
+  transform: translateY(-8px);
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 60px 20px;
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  h1 { font-size: 2.3rem; }
+  h2 { font-size: 1.9rem; }
+
+  .logo-symbol { width: 70px; }
+  .logo-text { width: 180px; }
+
+  section { padding: 90px 15px; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Particles -->
-  <div class="particles">
-    <div class="particle" style="left:10%"></div>
-    <div class="particle" style="left:30%"></div>
-    <div class="particle" style="left:55%"></div>
-    <div class="particle" style="left:75%"></div>
-    <div class="particle" style="left:90%"></div>
+<!-- Particles -->
+<div class="particles">
+  <div class="particle" style="left:10%"></div>
+  <div class="particle" style="left:30%"></div>
+  <div class="particle" style="left:50%"></div>
+  <div class="particle" style="left:70%"></div>
+  <div class="particle" style="left:90%"></div>
+</div>
+
+<!-- HERO -->
+<section>
+  <div class="brand">
+    <img src="symbol-p.png" alt="PERFCUT Symbol" class="logo-symbol">
+    <img src="font.png" alt="PERFCUT" class="logo-text">
   </div>
 
-  <!-- HERO -->
-  <section>
-    <img src="logo.png" alt="Perfect Team Logo" class="logo">
+  <h1>Perfect Website Solutions for Your Business</h1>
 
-    <h1>Perfect Website Solutions for Your Business</h1>
-    <p>
-      We design and develop high-quality websites focused on performance,
-      reliability, and real business growth.
-    </p>
+  <p>
+    We create modern, high-performance websites built to support
+    real business growth and long-term scalability.
+  </p>
 
-    <div class="hero-list">
-      Front-end & Back-end Development<br>
-      Secure Payment Gateway Integration<br>
-      WhatsApp Automation & Bot Integration<br>
-      Custom Business Websites
+  <div class="hero-list">
+    Front-end & Back-end Development<br>
+    Secure Payment Gateway Integration<br>
+    WhatsApp Automation & Bot Integration<br>
+    Custom Business Websites
+  </div>
+
+  <a href="mailto:team.perfect@gmail.com" class="btn">
+    Contact Us & Become Our Next Client
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <h2>Websites Designed to Grow Your Brand</h2>
+
+  <p>
+    PERFCUT specializes in building clean, fast, and secure
+    websites for businesses of all sizes.
+  </p>
+
+  <p>
+    Our focus is simple — deliver reliable digital solutions
+    that convert visitors into customers.
+  </p>
+
+  <p>
+    From planning to deployment, we manage the entire process
+    with precision and care.
+  </p>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <h2>Our Services</h2>
+
+  <div class="services">
+    <div class="service-box">
+      <h3>Custom Website Development</h3>
+      <p>Tailored front-end and back-end solutions aligned with your goals.</p>
     </div>
 
-    <a href="mailto:team.perfect@gmail.com" class="btn">
-      Contact Us & Become Our Next Client
-    </a>
-  </section>
-
-  <!-- ABOUT -->
-  <section>
-    <h2>Websites Built to Scale Your Business</h2>
-    <p>
-      Perfect Team creates modern, fast, and secure digital solutions for
-      businesses of every size.
-    </p>
-    <p>
-      Our mission is simple — build websites that look professional,
-      load fast, and convert visitors into customers.
-    </p>
-    <p>
-      From concept to deployment, we manage the entire process so
-      you can focus on what matters most.
-    </p>
-  </section>
-
-  <!-- SERVICES -->
-  <section>
-    <h2>Our Services</h2>
-
-    <div class="services">
-      <div class="service-box">
-        <h3>Custom Website Development</h3>
-        <p>
-          Tailored front-end and back-end solutions aligned with your
-          business objectives.
-        </p>
-      </div>
-
-      <div class="service-box">
-        <h3>Payment Gateway Integration</h3>
-        <p>
-          Secure and seamless online payment systems built for trust
-          and scalability.
-        </p>
-      </div>
-
-      <div class="service-box">
-        <h3>WhatsApp Automation</h3>
-        <p>
-          Smart WhatsApp bot integrations to automate communication
-          and boost engagement.
-        </p>
-      </div>
-
-      <div class="service-box">
-        <h3>Responsive & Performance Design</h3>
-        <p>
-          Mobile-first designs optimized for speed, usability,
-          and search engines.
-        </p>
-      </div>
+    <div class="service-box">
+      <h3>Payment Gateway Integration</h3>
+      <p>Secure and seamless online payment systems built for trust.</p>
     </div>
-  </section>
 
-  <!-- SAMPLE WORK -->
-  <section>
-    <h2>Sample Work</h2>
-    <p>
-      Explore our recent projects to see the quality and attention
-      to detail we deliver.
-    </p>
+    <div class="service-box">
+      <h3>WhatsApp Automation</h3>
+      <p>Smart WhatsApp bot integrations to automate communication.</p>
+    </div>
 
-    <a href="https://wrappedinn.github.io/Wrapped.inn/" target="_blank" class="btn">
-      View Sample Project
-    </a>
-  </section>
+    <div class="service-box">
+      <h3>Responsive & Performance Design</h3>
+      <p>Mobile-first designs optimized for speed and usability.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section>
-    <h2>Ready to Start Your Website?</h2>
-    <p>
-      Let’s turn your idea into a professional, high-performance website.
-    </p>
+<!-- SAMPLE WORK -->
+<section>
+  <h2>Sample Work</h2>
 
-    <a href="mailto:team.perfect@gmail.com" class="btn">Email Us</a><br><br>
-    <a href="https://instagram.com/" target="_blank" class="btn">Follow on Instagram</a>
-  </section>
+  <p>
+    Explore our work to understand the quality and attention
+    we bring to every project.
+  </p>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Perfect Team. All Rights Reserved.
-  </footer>
+  <a href="https://wrappedinn.github.io/Wrapped.inn/" target="_blank" class="btn">
+    View Sample Project
+  </a>
+</section>
+
+<!-- CTA -->
+<section>
+  <h2>Ready to Start Your Project?</h2>
+
+  <p>
+    Let’s transform your idea into a professional, high-impact website.
+  </p>
+
+  <a href="mailto:team.perfect@gmail.com" class="btn">Email Us</a><br><br>
+  <a href="https://instagram.com/" target="_blank" class="btn">Follow on Instagram</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 PERFCUT. All Rights Reserved.
+</footer>
 
 </body>
-</html>
+        </html>
