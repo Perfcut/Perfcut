@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PERFCUT delivers high-performance websites, payment integrations, WhatsApp automation, and SEO for modern brands.">
+<title>PERFCUT | Premium Web Solutions</title>
+
+<!-- Optimized font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg: #0a0a0a;
+  --text: #ffffff;
+  --text-muted: #b8bcc7;
+  --accent: #00d4ff;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --gradient: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(120, 119, 198, 0.1) 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Enhanced Parallax */
+.parallax {
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    var(--gradient);
+  z-index: -1;
+  animation: parallaxFloat 20s ease-in-out infinite;
+}
+
+@keyframes parallaxFloat {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.05) translateY(-20px); }
+}
+
+/* Professional Menu */
+.menu-btn {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+}
+
+.menu-btn:hover { 
+  background: var(--accent); 
+  border-color: var(--accent);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.3);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(400px, 90vw);
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(40px);
+  border-left: 1px solid var(--glass-border);
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1002;
+  padding: 80px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.menu-panel.active { transform: translateX(0); }
+
+.menu-panel a {
+  color: var(--text);
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.menu-panel a:hover {
+  opacity: 1;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Layout */
+main { max-width: 1400px; margin: 0 auto; }
+
+section {
+  padding: 120px 24px;
+  text-align: center;
+}
+
+/* Enhanced Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*===brand===*/
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  margin-bottom:70px;
+}
+.logo-symbol{
+  width:80px;
+  opacity:0;
+  animation:symbolIn 1.2s ease forwards;
+}
+.logo-text{
+  width:210px;
+  opacity:0;
+  animation:textIn 1.2s ease forwards;
+  animation-delay:.4s;
+}
+@keyframes symbolIn{
+  from{transform:scale(.7) rotate(-12deg);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+@keyframes textIn{
+  from{transform:translateX(-30px);opacity:0}
+  to{transform:none;opacity:1}
+}
+/* Typography */
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 700;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+p {
+  color: var(--text-muted);
+  max-width: 900px;
+  margin: 0 auto 24px;
+  font-size: 1.15rem;
+}
+
+/* Premium Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, var(--accent), #ff6b6b);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn:hover::before { opacity: 1; }
+.btn:hover {
+  background: transparent;
+  color: white;
+  border: 2px solid var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
+}
+
+/* Professional Bento Grid */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 80px;
+}
+
+.card {
+  padding: 48px 32px;
+  border-radius: 24px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  text-align: left;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover::before { opacity: 1; }
+.card:hover {
+  transform: translateY(-16px) scale(1.02);
+  border-color: var(--accent);
+  box-shadow: 0 32px 80px rgba(0, 212, 255, 0.2);
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.card p {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+  font-size: 1.4rem;
+}
+
+.icons i {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover .icons i {
+  background: var(--accent);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* Contact */
+.contact-box {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 32px;
+  border-radius: 50px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  min-height: 64px;
+}
+
+.contact:hover {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 212, 255, 0.3);
+}
+
+/* Footer */
+footer {
+  padding: 80px 24px 40px;
+  text-align: center;
+  color: #666;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section { padding: 80px 20px; }
+  .menu-panel { 
+    width: 100vw; 
+    padding: 60px 24px 40px; 
+    text-align: center;
+  }
+  .bento { grid-template-columns: 1fr; }
+  .contact-box { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+
+<body>
+<!-- Enhanced Menu -->
+<button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+<nav class="menu-panel" id="menuPanel" role="navigation" aria-label="Main navigation">
+  <a href="#services">Our Services</a>
+  <a href="#projects">Sample Projects</a>
+  <a href="#contact">Contact Us</a>
+</nav>
+
+<div class="parallax"></div>
+
+<main>
+  <!-- Hero -->
+<section class="reveal">
+  <div class="brand">
+    <!-- Logo section -->
+    <img src="symbol-p.png" alt="PERFCUT Symbol Logo" class="logo-symbol" loading="eager">
+    <img src="font.png" alt="PERFCUT Text Logo" class="logo-text" loading="eager">
+  </div>
+  <h1>Premium Web Solutions<br>For Modern Brands</h1>
+  <p>High-performance websites with payment gateways, WhatsApp automation, and enterprise-grade security.</p>
+  <a href="#services" class="btn">
+    <i class="fa-solid fa-rocket"></i>Explore Services
+  </a>
+</section>
+
+
+<!-- Services -->
+<section id="services" class="reveal">
+  <h2>Our Core Services</h2>
+  <div class="bento">
+    <div class="card">
+      <h3>Custom Development</h3>
+      <p>Full-stack websites using Next.js, React, and modern frameworks with pixel-perfect design.</p>
+      <div class="icons">
+        <i class="fa-brands fa-react"></i>
+        <i class="fa-brands fa-js-square"></i>
+        <i class="fa-brands fa-sass"></i>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Payment Integration</h3>
+      <p>Secure Stripe, Razorpay, PayPal with PCI-DSS compliance and subscription billing.</p>
+      <div class="icons">
+        <i class="fa-solid fa-lock"></i>
+        <i class="fa-solid fa-credit-card"></i>
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+    </div>
+    <div class="card">
+      <h3>WhatsApp Business</h3>
+      <p>Advanced automation, chatbots, broadcast campaigns, and CRM integration.</p>
+      <div class="icons">
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-solid fa-robot"></i>
+        <i class="fa-solid fa-comments"></i>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Performance + SEO</h3>
+      <p>Core Web Vitals optimization, Lighthouse 100 scores, and advanced SEO strategies.</p>
+      <div class="icons">
+        <i class="fa-solid fa-bolt"></i>
+        <i class="fa-solid fa-chart-line"></i>
+        <i class="fa-solid fa-search"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="reveal">
+  <h2>Featured Projects</h2>
+  <p style="max-width: 600px; margin: 0 auto 32px;">Real-world implementations showcasing our expertise in performance and scalability.</p>
+  <a href="https://wrappedinn.github.io/Wrapped.inn/" target="_blank" rel="noopener noreferrer" class="btn">
+    <i class="fa-solid fa-eye"></i>View Live Demo
+  </a>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="reveal">
+  <h2>Let's Build Together</h2>
+  <p>Ready to elevate your digital presence? Connect with our team today.</p>
+  <div class="contact-box">
+    <a href="mailto:team.perfect@gmail.com" class="contact" aria-label="Send email">
+      <i class="fa-solid fa-envelope"></i>Email Us
+    </a>
+    <a href="https://wa.me/916383957286" class="contact" aria-label="Contact via WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>+91 63839 57286
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>&copy; 2026 PERFCUT. All Rights Reserved. Built with precision.</p>
+</footer>
+
+<script>
+/* Enhanced Scroll Reveal */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.15 });
+
+reveals.forEach(reveal => observer.observe(reveal));
+
+/* Professional Menu */
+const menuBtn = document.getElementById('menuBtn');
+const menuPanel = document.getElementById('menuPanel');
+const menuOverlay = document.getElementById('menuOverlay');
+
+function toggleMenu() {
+  const isActive = menuPanel.classList.contains('active');
+  
+  menuBtn.querySelector('i').className = isActive 
+    ? 'fa-solid fa-bars' 
+    : 'fa-solid fa-xmark';
+  
+  menuBtn.setAttribute('aria-expanded', !isActive);
+  menuOverlay.setAttribute('aria-hidden', isActive);
+  
+  menuPanel.classList.toggle('active');
+  menuOverlay.classList.toggle('active');
+  
+  document.body.style.overflow = isActive ? '' : 'hidden';
+}
+
+menuBtn.addEventListener('click', toggleMenu);
+menuOverlay.addEventListener('click', toggleMenu);
+
+document.querySelectorAll('#menuPanel a').forEach(link => {
+  link.addEventListener('click', toggleMenu);
+});
+
+// Keyboard support
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menuPanel.classList.contains('active')) {
+    toggleMenu();
+  }
+});
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
